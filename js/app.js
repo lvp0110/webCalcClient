@@ -325,3 +325,6 @@ TypesSelect.onchange = changeType;
 
 
 renderTable(TypesCategories, TypesSelect, getOption);
+
+
+//hello how are you?
