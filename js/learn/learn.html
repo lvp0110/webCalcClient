@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+  
+
+    <div class="container py-2">
+        <input type="text" class="form-control">
+
+        <hr>
+
+        <li class="list-group-item">some text</li>
+
+        <ul class="list-group"></ul>
+    </div>
+
+    <script>
+
+        document.querySelector('input').onchange = function()
+        {
+            let li = document.createElement('li');
+            li.classList.add('list-group-item');
+
+            let h3 = document.createElement('h3');
+            h3.style.color = 'red';
+            h3.textContent = this.value;
+
+            li.append(h3);
+
+            //document.querySelector('.list-group').append(li);
+            //document.querySelector('.list-group').prepend(li);
+
+
+        //    document.querySelector('.list-group').innerHTML += `<li class="list-group-item">
+        //                                                             <h3 style="color: red">${this.value.replaceAll('<', '')}</h3>
+        //                                                         </li>`
+
+        //     document.querySelector('.list-group').innerHTML = `<li class="list-group-item">${this.value}</li>` + document.querySelector('.list-group').innerHTML;
+
+
+                                                                
+             //REMOVE
+
+            //  document.querySelectorAll('.list-group-item').forEach((li) => {
+            //     li.onclick = function()
+            //     {
+            //         this.remove()
+            //     }
+            //  })
+
+            //CLEAR 
+
+            // document.querySelector('.list-group').onclick = function()
+            // {
+            //     this.textContent = ''; //innerText innerHTML
+            // }
+
+            //CLONE
+
+            // let clone = document.querySelector('li').cloneNode();
+            // let clone = document.querySelector('li').cloneNode(true); //with children elements
+
+            // clone.textContent = 'my new text';
+
+            // document.querySelector('.list-group').append(clone)
+
+            //MOVE
+            let Li = document.querySelector('li')
+
+            document.querySelector('.list-group').append(Li);
+
+
+            // localStorage
+            // window.location.assign('url')
+
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>
