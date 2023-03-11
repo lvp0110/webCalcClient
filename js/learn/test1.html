@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="input1">some text 
+    </select>
+</body>
+<script>
+
+
+const inputBox = document.querySelector('#input1');
+
+const TypesCategories = [
+    {
+        id: 'AG.W', 
+        title: 'Перегородка',
+        steps: true,
+        doubleFrame: true
+    },
+    {
+        id: 'AG.L', 
+        title: 'Облицовка',
+        steps: true,
+        doubleFrame: true
+    },
+    {
+        id: 3, 
+        title: 'Потолок',
+        steps: false,
+        doubleFrame: true
+    },
+    {
+        id: 4, 
+        title: 'Пол',
+        steps: false,
+        doubleFrame: false
+    }
+];
+
+const getOption = (data) => (` 
+    <option value="${data.id}">${data.title}</option>
+`)
+
+function renderTable(data = Data, Out = Table, x)
+{
+
+    Data = data;
+
+    Out.innerHTML = '';
+
+    if(Data.length)
+    {
+        Data.forEach((el) => {
+            Out.innerHTML += x(el);
+        })
+    }
+    else
+    {
+        Out.innerHTML = `<h2 class="text-muted">No data</h2>`
+    }
+}
+
+renderTable(TypesCategories, inputBox, getOption);
+
+</script>
+</html>
