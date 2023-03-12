@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <select name="" id="id1"></select>
+    </div>
+
+    <option value=""></option>
+    <script>
+   
+   const TypesCategories = [
+    {
+        id: 'AG.W', 
+        title: 'Перегородка',
+        steps: true,
+        doubleFrame: true
+    },
+    {
+        id: 'AG.L', 
+        title: 'Облицовка',
+        steps: true,
+        doubleFrame: true
+    },
+    {
+        id: 3, 
+        title: 'Потолок',
+        steps: false,
+        doubleFrame: true
+    },
+    {
+        id: 4, 
+        title: 'Полы',
+        steps: false,
+        doubleFrame: false
+    }
+];
+
+
+    function optionList(text) { 
+        return ` 
+    <option value="${text}">${text}</option>
+`}
+
+            select1 = document.querySelector('#id1');
+
+
+          function printArray(array){
+                array.forEach(element => {
+                    select1.innerHTML += optionList(element.title);
+                });
+          } 
+
+          printArray(TypesCategories);
+
+    </script>
+</body>
+</html>
