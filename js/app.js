@@ -41,7 +41,7 @@ const TypesCategories = [
     },
     {
         id: 4, 
-        title: 'Пол',
+        title: 'Полы',
         steps: false,
         doubleFrame: false
     }
@@ -324,8 +324,6 @@ CalcBtn.onclick = calcConstruction;
 TypesSelect.onchange = changeType;
 
 
-renderTable(TypesCategories, TypesSelect, getOption);
+renderTable(TypesItems, TypesSelect, getOption);
 
 
-//hello how are you?
-/*hello*/
