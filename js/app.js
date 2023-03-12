@@ -301,7 +301,7 @@ function changeType()
 
 function changeType1()
 {
-    let type = TypesCategories.find((el) => el.id == this.value);
+    let type = TypesItems.find((el) => el.id == this.value);
 
     console.log(type);
 
@@ -321,10 +321,11 @@ Table.onclick = editConstrution;
 Popup.querySelector('.popup-close').onclick = closePopup;
 Popup.querySelector('.btn-save')
 CalcBtn.onclick = calcConstruction;
-TypesSelect.onchange = changeType;
+TypesSelect.onchange = changeType1;
 
 
-renderTable(TypesCategories, TypesSelect, getOption);
+// renderTable(TypesCategories, TypesSelect, getOption);
+renderTable(TypesItems,TypesSelect,getOption);
 
 
 //hello how are you?
