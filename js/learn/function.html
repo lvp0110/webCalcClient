@@ -7,13 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <select name="" id="input1">some text 
-    </select>
+    
 </body>
+
 <script>
-
-
-const inputBox = document.querySelector('#input1');
 
 const TypesCategories = [
     {
@@ -42,30 +39,27 @@ const TypesCategories = [
     }
 ];
 
-const getOption = (data) => (` 
-    <option value="${data.id}">${data.title}</option>
-`)
 
-function renderTable(data = Data, Out = Table, x)
-{
+function test (arr,func1){
+    
+    arr.forEach(element => {
+        func1(element);
+    });
 
-    Data = data;
 
-    Out.innerHTML = '';
-
-    if(Data.length)
-    {
-        Data.forEach((el) => {
-            Out.innerHTML += x(el);
-        })
-    }
-    else
-    {
-        Out.innerHTML = `<h2 class="text-muted">No data</h2>`
-    }
 }
 
-renderTable(TypesCategories, inputBox, getOption);
+
+// let func1 = function(number){
+//     return number*number*number;
+// }
+
+function printString(text){
+    console.log(text.title);
+}
+
+
+test(TypesCategories, printString);
 
 </script>
 </html>
