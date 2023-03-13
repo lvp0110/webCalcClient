@@ -99,9 +99,9 @@ const TypesItems = [
 
             Select1 = document.querySelector('#id1');
             Select2 = document.querySelector('#id2');
-            option = document.querySelector('#op1');
             
-           // input = document.querySelector('.id1');
+            
+           // input = document.querySelector('.id1');                                                  
 
 
 
@@ -124,14 +124,20 @@ const TypesItems = [
        
           printArray(TypesCategories);
           
+          
+          printSubArray(TypesItems,selectedOption(Select1));
+          
           Select1.onchange = function(){
             Select2.options.length = 0;
-
-            let index = Select1.selectedIndex;
-            let options = Select1.options;
-            let chosee = options[index].textContent;
-            printSubArray(TypesItems,chosee);
+            printSubArray(TypesItems,selectedOption(Select1));
         };
+
+        function selectedOption(select){
+            let index = select.selectedIndex;
+            let options = select.options;
+
+            return options[index].textContent;
+        }
          
     
         
