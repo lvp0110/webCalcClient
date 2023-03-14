@@ -91,10 +91,9 @@ const TypesItems = [
     }
 ];
 
-
     function optionList(text) { 
         return ` 
-    <option id = "op1" value="${text}">${text}</option>
+        <option id = "op1" value="${text}">${text}</option>
 `}
 
             select1 = document.querySelector('#id1');
@@ -102,8 +101,6 @@ const TypesItems = [
             option = document.querySelector('#op1');
             
            // input = document.querySelector('.id1');
-
-
 
           function printArray(array){
                 array.forEach(element => {
@@ -120,18 +117,10 @@ const TypesItems = [
                 });
           } 
 
-          
-       
           printArray(TypesCategories);
           option = document.querySelector('#op1');
           select1.onchange = function(){printSubArray(TypesItems,select1.value);};
-         
-        
-       
-          
-        
-
-          
+   
 
     </script>
 </body>
