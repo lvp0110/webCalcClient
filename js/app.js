@@ -12,7 +12,9 @@ const TableCalc = document.querySelector('.table-calc');
 const Popup = document.querySelector('.popup-wrap');
 
 const CalcBtn = document.querySelector('.calc-btn');
-const TypesSelect = document.querySelector('#types_items');
+const TypesSelect = document.querySelector('#types_solutions');
+const ConstrSelect = document.querySelector('#types_constr');
+
 
 const [ stepsArea, doubleArea ] = document.querySelectorAll('.steps-area, .double-area');
 
@@ -22,13 +24,13 @@ let cntItem = {};
 
 const TypesCategories = [
     {
-        id: 'AG.W', 
+        id: 1, 
         title: 'Перегородка',
         steps: true,
         doubleFrame: true
     },
     {
-        id: 'AG.L', 
+        id: 2, 
         title: 'Облицовка',
         steps: true,
         doubleFrame: true
@@ -52,7 +54,7 @@ const TypesItems = [
     {
         id: 101, 
         title: 'Перегородка на одинарном каркасе 50 м',
-        c_id: 'AG.W'
+        c_id: 1
     },
     {
         id: 2, 
@@ -299,18 +301,32 @@ function changeType()
 
 }
 
-function changeType1()
+function changeContr()
 {
     let type = TypesItems.find((el) => el.id == this.value);
 
-    console.log(type);
+    console.log(type.id);
 
     stepsArea.style.display = type.steps ? 'block' : 'none';
     doubleArea.style.display = type.doubleFrame ? 'block' : 'none';
 
 }
 
+function printSubArray(array,category){
+    array.forEach(element => {
+        if (element.c_id == category){
+            ConstrSelect.innerHTML += getOption(element);
+        }
+        
+    });
+} 
 
+function selectedOption(select){
+    let index = select.selectedIndex;
+    let options = select.options;
+
+    return options[index].value;
+}
 
 
 request('http://localhost:8080/constr', 'get', null, renderTable);
@@ -321,8 +337,9 @@ Table.onclick = editConstrution;
 Popup.querySelector('.popup-close').onclick = closePopup;
 Popup.querySelector('.btn-save')
 CalcBtn.onclick = calcConstruction;
-TypesSelect.onchange = changeType1;
+TypesSelect.onchange = changeType;
 
 
-renderTable(TypesCategories, TypesSelect, getOption);
+renderTable(TypesItems, TypesSelect, getOption);
+
 

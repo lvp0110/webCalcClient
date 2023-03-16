@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div id="d1">
         <select name="" id="id1"></select>
+        <select name="" id="id2"></select>
     </div>
 
     <option value=""></option>
@@ -16,13 +17,13 @@
    
    const TypesCategories = [
     {
-        id: 'AG.W', 
+        id: 1, 
         title: 'Перегородка',
         steps: true,
         doubleFrame: true
     },
     {
-        id: 'AG.L', 
+        id: 2, 
         title: 'Облицовка',
         steps: true,
         doubleFrame: true
@@ -42,21 +43,90 @@
 ];
 
 
+const TypesItems = [
+    {
+        id: 101, 
+        title: 'Перегородка на одинарном каркасе 50 м',
+        c_id: 'Перегородка'
+    },
+    {
+        id: 2, 
+        title: 'Перегородка 2',
+        c_id: 'Перегородка'
+    },
+    {
+        id: 3, 
+        title: 'Перегородка 3',
+        c_id: 'Перегородка'
+    },
+    {
+        id: 4, 
+        title: 'Облицовка 1',
+        c_id: 'Облицовка'
+    },
+    {
+        id: 5, 
+        title: 'Облицовка 2',
+        c_id: 'Облицовка'
+    },
+    {
+        id: 6, 
+        title: 'Потолок 1',
+        c_id: 'Потолок'
+    },
+    {
+        id: 7, 
+        title: 'Потолок 2',
+        c_id: 'Потолок'
+    },
+    {
+        id: 8, 
+        title: 'Пол 1',
+        c_id: 'Полы'
+    },
+    {
+        id: 9, 
+        title: 'Пол 2',
+        c_id: 'Полы'
+    }
+];
+
     function optionList(text) { 
-        return `<option value="${text}">${text}</option>`
+        return ` 
+    <option value="${text}">${text}</option>
+`}
 
-}
-
-            select1 = document.querySelector('#id1');
-
+            Select1 = document.querySelector('#id1');
+            Select2 = document.querySelector('#id2');
+            
+            
+           // input = document.querySelector('.id1');                                                  
 
           function printArray(array){
                 array.forEach(element => {
-                    select1.innerHTML += optionList(element.title);
+                    Select1.innerHTML += optionList(element.title);
+                });
+          } 
+
+          function printSubArray(array,category){
+                array.forEach(element => {
+                    if (element.c_id == category){
+                        Select2.innerHTML += optionList(element.title);
+                    }
+                    
                 });
           } 
 
           printArray(TypesCategories);
+          option = document.querySelector('#op1');
+          select1.onchange = function(){printSubArray(TypesItems,select1.value);};
+         
+        
+       
+          
+        
+
+          
 
     </script>
 </body>

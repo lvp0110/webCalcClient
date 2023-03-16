@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <select name="sol" id="solutions">C1</select>
+        <select name="constr" id="constructions">C2</select>
+    </div> 
+<script>
+    let solution = document.getElementById('solutions');
+    let construction = document.getElementById('constructions');
+    
+    let arrSolution = {
+        1:'пергородка',
+        2:'облицовка',
+        3:'потолок',
+        4:'пол'
+        }
+    let arrS = [
+        'пергородка',
+        'облицовка',
+        'потолок',
+        'пол'
+        ];
+        
+        function createOption(name='empty'){
+           return `<option value="${name}">${name}</option>`; 
+
+        }
+     function out (){
+
+            arrS.forEach(element => {
+            solution.innerHTML += createOption(element);
+            console.log(element);
+        });
+
+    };
+
+    out();    
+
+
+</script>
+</body>
+</html>
