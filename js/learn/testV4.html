@@ -11,16 +11,21 @@
         <select name="sol" id="solutions">C1</select>
         <select name="constr" id="constructions">C2</select>
     </div> 
+    <div id="div_box">
+
+    </div>
 <script>
     let solution = document.getElementById('solutions');
     let construction = document.getElementById('constructions');
-    
-    let arrSolution = {
-        1:'пергородка',
-        2:'облицовка',
-        3:'потолок',
-        4:'пол'
-        }
+    let box = document.getElementById('div_box');
+
+    let arrSolution = [
+        'пергородки',
+        'облицовки',
+        'потолки',
+        'полы'
+    ]
+        
     let arrS = [
         'пергородка',
         'облицовка',
@@ -28,20 +33,31 @@
         'пол'
         ];
         
-        function createOption(name='empty'){
+        function createOption(name ='empty'){
            return `<option value="${name}">${name}</option>`; 
-
         }
-     function out (){
 
+        function createSelect(name ='empty'){
+           return `<select value="${name}">${name}</select>`; 
+        }
+        
+     function outOption (){
             arrS.forEach(element => {
             solution.innerHTML += createOption(element);
             console.log(element);
         });
+            arrSolution.forEach(element => {
+            construction.innerHTML += createOption(element);
+                    console.log(element);}
+        )};
+        
+        function outSelect(){
+            box.innerHTML = createSelect();
+            console.log(box);    
+        }
 
-    };
-
-    out();    
+    outOption();  
+    outSelect();  
 
 
 </script>
