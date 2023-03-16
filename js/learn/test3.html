@@ -96,22 +96,22 @@ const TypesItems = [
         <option id = "op1" value="${text}">${text}</option>
 `}
 
-            select1 = document.querySelector('#id1');
-            select2 = document.querySelector('#id2');
-            option = document.querySelector('#op1');
+            Select1 = document.querySelector('#id1');
+            Select2 = document.querySelector('#id2');
             
-           // input = document.querySelector('.id1');
+            
+           // input = document.querySelector('.id1');                                                  
 
           function printArray(array){
                 array.forEach(element => {
-                    select1.innerHTML += optionList(element.title);
+                    Select1.innerHTML += optionList(element.title);
                 });
           } 
 
           function printSubArray(array,category){
                 array.forEach(element => {
                     if (element.c_id == category){
-                        select2.innerHTML += optionList(element.title);
+                        Select2.innerHTML += optionList(element.title);
                     }
                     
                 });
@@ -120,7 +120,13 @@ const TypesItems = [
           printArray(TypesCategories);
           option = document.querySelector('#op1');
           select1.onchange = function(){printSubArray(TypesItems,select1.value);};
-   
+         
+        
+       
+          
+        
+
+          
 
     </script>
 </body>
