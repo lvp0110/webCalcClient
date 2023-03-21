@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="s1"></select>
+    <table></table>
+
+    <script>
+        let solution = document.getElementById('s1');
+        let table = document.createElement('tr');
+        
+        let hello = 45332;
+        let construction = [
+            'перегородка',
+            'облицовка',
+            'полы' ,
+            'потолкм'
+        ]
+        const TypesCategories = [
+            {
+                id: 1, 
+                title: 'Перегородка',
+                steps: true,
+                doubleFrame: true
+            },
+            {
+                id: 2, 
+                title: 'Облицовка',
+                steps: true,
+                doubleFrame: true
+            },
+            {
+                id: 3, 
+                title: 'Потолок',
+                steps: false,
+                doubleFrame: true
+            },
+            {
+                id: 4, 
+                title: 'Полы',
+                steps: false,
+                doubleFrame: false
+            }
+        ];
+
+        function createOption(parametr){
+             return `<option value="${parametr}">${parametr}</option>`
+        }
+        function createTable(parametr){
+             return `<td >${parametr}</td>`
+        }
+
+        function outOption(arr,select){
+          
+            arr.forEach(element => {
+                select.innerHTML += createOption(element.title);
+   
+            });
+                
+        }
+
+        function outTable(arr,select){
+          
+            arr.forEach(element => {
+                select.innerHTML += createTable(element.title);
+   
+            });
+                
+        }
+        table.innerHTML = '<td >hello</td>';
+
+        outOption(TypesCategories,solution);
+        outTable(TypesCategories,table);
+
+    </script>
+</body>
+</html>

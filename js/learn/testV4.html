@@ -7,13 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="div_box"></div>
     <div>
         <select name="sol" id="solutions">C1</select>
         <select name="constr" id="constructions">C2</select>
     </div> 
-    <div id="div_box">
-
-    </div>
+    
 <script>
     let solution = document.getElementById('solutions');
     let construction = document.getElementById('constructions');
@@ -32,32 +31,104 @@
         'потолок',
         'пол'
         ];
-        
+
+    const TypesCategories = [
+        {
+            id: 1, 
+            title: 'Перегородка',
+            steps: true,
+            doubleFrame: true
+        },
+        {
+            id: 2, 
+            title: 'Облицовка',
+            steps: true,
+            doubleFrame: true
+        },
+        {
+            id: 3, 
+            title: 'Потолок',
+            steps: false,
+            doubleFrame: true
+        },
+        {
+            id: 4, 
+            title: 'Полы',
+            steps: false,
+            doubleFrame: false
+        }
+    ]; 
+    const TypesItems = [
+    {
+        id: 101, 
+        title: 'Перегородка на одинарном каркасе 50 м',
+        c_id: 1
+    },
+    {
+        id: 2, 
+        title: 'Перегородка 2',
+        c_id: 1
+    },
+    {
+        id: 3, 
+        title: 'Перегородка 3',
+        c_id: 1
+    },
+    {
+        id: 4, 
+        title: 'Облицовка 1',
+        c_id: 2
+    },
+    {
+        id: 5, 
+        title: 'Облицовка 2',
+        c_id: 2
+    },
+    {
+        id: 6, 
+        title: 'Потолок 1',
+        c_id: 3
+    },
+    {
+        id: 7, 
+        title: 'Потолок 2',
+        c_id: 3
+    },
+    {
+        id: 8, 
+        title: 'Пол 1',
+        c_id: 4
+    },
+    {
+        id: 9, 
+        title: 'Пол 2',
+        c_id: 4
+    }
+];  
         function createOption(name ='empty'){
            return `<option value="${name}">${name}</option>`; 
         }
 
-        function createSelect(name ='empty'){
-           return `<select value="${name}">${name}</select>`; 
-        }
+        // function createSelect(name ='empty'){
+        //    return `<select value="${name}">${name}</select>`; 
+        // }
         
-     function outOption (){
-            arrS.forEach(element => {
-            solution.innerHTML += createOption(element);
+     function outOption (arr,select){
+            arr.forEach(element => {
+            select.innerHTML += createOption(element);
             console.log(element);
         });
-            arrSolution.forEach(element => {
-            construction.innerHTML += createOption(element);
-                    console.log(element);}
-        )};
+          
+        };
         
-        function outSelect(){
-            box.innerHTML = createSelect();
-            console.log(box);    
-        }
+        // function outSelect(){
+        //     box.innerHTML = createSelect();
+        //     console.log(box);    
+        // }
 
-    outOption();  
-    outSelect();  
+    outOption(arrSolution,solution);  
+    outOption(TypesCategories,construction);  
+    // outSelect();  
 
 
 </script>
